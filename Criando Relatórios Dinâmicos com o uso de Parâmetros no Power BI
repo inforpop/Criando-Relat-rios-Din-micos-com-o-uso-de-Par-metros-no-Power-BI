@@ -1,0 +1,76 @@
+Criar relatórios dinâmicos no Power BI utilizando parâmetros é uma maneira poderosa de permitir que os usuários interajam com os dados e personalizem as visualizações conforme suas necessidades. Aqui estão os passos gerais para criar esses relatórios dinâmicos com o uso de parâmetros:
+
+1. Criar Parâmetros
+Os parâmetros podem ser utilizados para filtrar dados, alterar medidas ou personalizar as visualizações.
+
+Passos para criar um parâmetro:
+
+No Power BI Desktop, vá para a aba Modelagem.
+Clique em Novo parâmetro.
+Defina um nome para o parâmetro.
+Escolha o tipo de dados (Número decimal, Número inteiro, Texto, etc.).
+Defina um valor padrão, mínimo, máximo e incremento (se aplicável).
+Clique em OK.
+2. Utilizar Parâmetros em Tabelas ou Medidas
+Você pode utilizar os parâmetros criados para modificar medidas ou filtrar tabelas.
+
+Exemplo para utilizar um parâmetro em uma medida:
+
+Vá para a aba Modelagem e clique em Nova Medida.
+
+Crie uma medida utilizando o parâmetro:
+
+DAX
+Copiar código
+Medida Filtrada = CALCULATE(SUM(Tabela[Coluna]), Tabela[Coluna] = [NomeDoParametro])
+3. Adicionar Parâmetros como Filtros de Página
+Você pode adicionar os parâmetros como filtros de página para permitir que os usuários modifiquem o conteúdo dos relatórios dinamicamente.
+
+Vá para a aba Visualizações.
+Arraste o parâmetro criado para a área de filtros.
+Selecione o tipo de filtro (Filtro de página, Filtro de relatório, etc.).
+4. Usar Slicers para Selecionar Parâmetros
+Os slicers são úteis para permitir que os usuários escolham os valores dos parâmetros de forma visual.
+
+Vá para a aba Inserir e selecione Segmentação de Dados (Slicer).
+Escolha o campo correspondente ao parâmetro.
+Adicione a segmentação de dados ao relatório.
+5. Dinamizar Visualizações com Parâmetros
+Com os parâmetros em vigor, suas visualizações podem se adaptar dinamicamente conforme os parâmetros são ajustados.
+
+Exemplo de uso de um parâmetro para alterar a visualização:
+
+Crie um gráfico de barras com uma medida que depende de um parâmetro.
+Ao alterar o valor do parâmetro usando o slicer, o gráfico se atualizará automaticamente para refletir os novos valores filtrados.
+Exemplo Completo
+Vamos supor que você tenha uma tabela de vendas (Vendas) com colunas Produto, Quantidade e Data. Você quer criar um relatório que permita ao usuário selecionar um ano específico para visualizar as vendas.
+
+Criar um Parâmetro para o Ano:
+
+Nome: Ano Selecionado
+Tipo de Dados: Número Inteiro
+Valor Mínimo: 2018
+Valor Máximo: 2023
+Incremento: 1
+Valor Padrão: 2023
+Criar uma Medida que Utilize o Parâmetro:
+
+DAX
+Copiar código
+Vendas Filtradas = CALCULATE(SUM(Vendas[Quantidade]), YEAR(Vendas[Data]) = [Ano Selecionado])
+Adicionar um Slicer para o Ano Selecionado:
+
+Inserir um slicer no relatório.
+Vincular o slicer ao parâmetro Ano Selecionado.
+Criar Visualizações Dinâmicas:
+
+Criar um gráfico de barras ou tabela usando a medida Vendas Filtradas.
+Conforme o usuário altera o ano no slicer, o gráfico se atualiza para refletir as vendas do ano selecionado.
+Conclusão
+O uso de parâmetros no Power BI permite criar relatórios interativos e dinâmicos, fornecendo aos usuários a capacidade de personalizar visualizações conforme suas necessidades específicas. Com a combinação de parâmetros, medidas dinâmicas e slicers, você pode construir relatórios poderosos e flexíveis que se adaptam às preferências do usuário em tempo real.
+
+
+
+
+
+
